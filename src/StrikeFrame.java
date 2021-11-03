@@ -16,7 +16,6 @@ public class StrikeFrame extends Frame {
 	 */
 	public StrikeFrame(boolean is10th) {
 		super(is10th);
-		// TODO Auto-generated constructor stub
 	}
 
 }

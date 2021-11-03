@@ -29,4 +29,33 @@ public class CommonFrame extends Frame {
 		return firstRoll + secondRoll;
 	}
 
+	/**
+	 * @return the firstRoll
+	 */
+	
+	public int getFirstRoll() {
+		return firstRoll;
+	}
+
+	/**
+	 * @param firstRoll the firstRoll to set
+	 */
+	public void setFirstRoll(int firstRoll) {
+		this.firstRoll = firstRoll;
+	}
+
+	/**
+	 * @return the secondRoll
+	 */
+	public int getSecondRoll() {
+		return secondRoll;
+	}
+
+	/**
+	 * @param secondRoll the secondRoll to set
+	 */
+	public void setSecondRoll(int secondRoll) {
+		this.secondRoll = secondRoll;
+	}
+
 }

@@ -82,9 +82,18 @@ public class BowlingInputHandler {
 							frames.add(spareFrame);
 						}
 					} else {
-						CommonFrame commonFrame = new CommonFrame(Character.getNumericValue(frameAsString.charAt(0)),
-								Character.getNumericValue(frameAsString.charAt(1)), false);
-						frames.add(commonFrame);
+						if (frames.size() == 9) {
+							CommonFrame commonFrame = new CommonFrame(
+									Character.getNumericValue(frameAsString.charAt(0)),
+									Character.getNumericValue(frameAsString.charAt(1)), true);
+							frames.add(commonFrame);
+						} else {
+							CommonFrame commonFrame = new CommonFrame(
+									Character.getNumericValue(frameAsString.charAt(0)),
+									Character.getNumericValue(frameAsString.charAt(1)), false);
+							frames.add(commonFrame);
+						}
+
 					}
 					frameAsString = "";
 				}

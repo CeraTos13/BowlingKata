@@ -7,7 +7,7 @@
  *
  */
 public class SpareFrame extends Frame {
-	
+
 	private int firstRoll;
 
 	/**
@@ -18,8 +18,7 @@ public class SpareFrame extends Frame {
 	 */
 	public SpareFrame(int firstRoll, boolean is10th) {
 		super(is10th);
-		this.firstRoll =firstRoll;
-		// TODO Auto-generated constructor stub
+		this.firstRoll = firstRoll;
 	}
 
 	/**
@@ -35,7 +34,5 @@ public class SpareFrame extends Frame {
 	public void setFirstRoll(int firstRoll) {
 		this.firstRoll = firstRoll;
 	}
-	
-	
 
 }
