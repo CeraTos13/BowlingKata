@@ -7,6 +7,8 @@
  *
  */
 public class SpareFrame extends Frame {
+	
+	private int firstRoll;
 
 	/**
 	 * @param firstRoll
@@ -14,15 +16,26 @@ public class SpareFrame extends Frame {
 	 * @param is10th
 	 * @param score
 	 */
-	public SpareFrame(boolean is10th, int score) {
+	public SpareFrame(int firstRoll, boolean is10th) {
 		super(is10th);
+		this.firstRoll =firstRoll;
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Override
-	public int getScore() {
-		// TODO Auto-generated method stub
-		return super.getScore();
+
+	/**
+	 * @return the firstRoll
+	 */
+	public int getFirstRoll() {
+		return firstRoll;
 	}
+
+	/**
+	 * @param firstRoll the firstRoll to set
+	 */
+	public void setFirstRoll(int firstRoll) {
+		this.firstRoll = firstRoll;
+	}
+	
+	
 
 }

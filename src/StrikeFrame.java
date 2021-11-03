@@ -14,7 +14,7 @@ public class StrikeFrame extends Frame {
 	 * @param is10th
 	 * @param score
 	 */
-	public StrikeFrame(boolean is10th, int score) {
+	public StrikeFrame(boolean is10th) {
 		super(is10th);
 		// TODO Auto-generated constructor stub
 	}
