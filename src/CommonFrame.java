@@ -14,11 +14,9 @@ public class CommonFrame extends Frame {
 	/**
 	 * @param firstRoll
 	 * @param secondRoll
-	 * @param is10th
 	 * @param score
 	 */
-	public CommonFrame(int firstRoll, int secondRoll, boolean is10th) {
-		super(is10th);
+	public CommonFrame(int firstRoll, int secondRoll) {
 		this.firstRoll = firstRoll;
 		this.secondRoll = secondRoll;
 	}

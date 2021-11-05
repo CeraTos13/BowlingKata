@@ -15,6 +15,9 @@ public class Main {
 		bowlingInputHandler.convertLineToFrames();
 		ArrayList<Frame> frames = bowlingInputHandler.getFrames();
 		System.out.println(frames);
+		ScoreCalculator scoreCalculator = new ScoreCalculator();
+		scoreCalculator.setFramesToCalculate(frames);
+		System.out.println(scoreCalculator.calculate());
 	}
 
 }

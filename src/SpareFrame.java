@@ -13,11 +13,9 @@ public class SpareFrame extends Frame {
 	/**
 	 * @param firstRoll
 	 * @param secondRoll
-	 * @param is10th
 	 * @param score
 	 */
-	public SpareFrame(int firstRoll, boolean is10th) {
-		super(is10th);
+	public SpareFrame(int firstRoll) {
 		this.firstRoll = firstRoll;
 	}
 
