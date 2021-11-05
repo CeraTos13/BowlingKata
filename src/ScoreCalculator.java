@@ -50,12 +50,12 @@ public class ScoreCalculator {
 						break;
 					}
 				case "SpareFrame":
-					Frame nextFrame2 = framesToCalculate.get(frameIndex + 1);
-					if (identifyFrame(nextFrame2).equals("StrikeFrame")) {
+					Frame nextFrameForSpare = framesToCalculate.get(frameIndex + 1);
+					if (identifyFrame(nextFrameForSpare).equals("StrikeFrame")) {
 						currentFrame.setScore(20);
 						break;
 					} else {
-						currentFrame.setScore(10 + nextFrame2.getFirstRoll());
+						currentFrame.setScore(10 + nextFrameForSpare.getFirstRoll());
 						break;
 					}
 				}
@@ -72,7 +72,4 @@ public class ScoreCalculator {
 		return frameType;
 	}
 
-	public void handleBonus(Frame frameNumber10) {
-
-	}
 }
