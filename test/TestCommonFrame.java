@@ -39,11 +39,11 @@ class TestCommonFrame {
 	@Test
 	void testGetScore() {
 		for (ArrayList<Integer> valuePair : validValues) {
-			int expetedScore = valuePair.get(0) + valuePair.get(1);
+			int expectedScore = valuePair.get(0) + valuePair.get(1);
 			frame = new CommonFrame(valuePair.get(0), valuePair.get(1), false);
 			// System.out.println(String.format("%d,%d",
 			// frame.getFirstRoll(),frame.getSecondRoll()));
-			assertEquals("testGetScore()", expetedScore, frame.getScore());
+			assertEquals("testGetScore()", expectedScore, frame.getScore());
 		}
 	}
 
