@@ -50,6 +50,7 @@ With Boni
 class TestScoreCalculator {
 	String line = "";
 	int expectedScore;
+	int specificFrameScore;
 	ArrayList<Frame> frames = new ArrayList<>();
 	ScoreCalculator scoreCalculator = new ScoreCalculator();
 
@@ -83,7 +84,9 @@ class TestScoreCalculator {
 		line = "4/ 44 42 12 32 34 5- -3 27 43";
 		setUpHandlerAndCalculator();
 		expectedScore = 67;
+		specificFrameScore = 14;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(0).getScore());
 	}
 
 	@Test
@@ -91,7 +94,9 @@ class TestScoreCalculator {
 		line = "45 5/ 36 62 45 43 32 41 -2 34";
 		setUpHandlerAndCalculator();
 		expectedScore = 74;
+		specificFrameScore = 13;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(1).getScore());
 	}
 
 	@Test
@@ -99,7 +104,9 @@ class TestScoreCalculator {
 		line = "4/ -- 43 12 23 54 23 43 32 43";
 		setUpHandlerAndCalculator();
 		expectedScore = 58;
+		specificFrameScore = 10;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(0).getScore());
 	}
 
 	@Test
@@ -107,7 +114,9 @@ class TestScoreCalculator {
 		line = "34 22 11 23 4/ 4/ 23 -- 32 -1";
 		setUpHandlerAndCalculator();
 		expectedScore = 55;
+		specificFrameScore = 14;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(4).getScore());
 	}
 
 	@Test
@@ -115,8 +124,9 @@ class TestScoreCalculator {
 		line = "34 22 11 23 4/ X  23 -- 32 -1";
 		setUpHandlerAndCalculator();
 		expectedScore = 64;
+		specificFrameScore = 20;
 		assertEquals(expectedScore, scoreCalculator.calculate());
-		assertEquals(15,frames.get(5).getScore());
+		assertEquals(specificFrameScore,frames.get(4).getScore());
 	}
 
 	@Test
@@ -124,7 +134,9 @@ class TestScoreCalculator {
 		line = "X  34 23 54 4- 3- -1 -3 -- 44";
 		setUpHandlerAndCalculator();
 		expectedScore = 57;
+		specificFrameScore = 17;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(0).getScore());
 	}
 
 	@Test
@@ -132,7 +144,9 @@ class TestScoreCalculator {
 		line = "45 54 36 X  31 -- 3- -1 -2 34";
 		setUpHandlerAndCalculator();
 		expectedScore = 58;
+		specificFrameScore = 14;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(3).getScore());
 	}
 
 	@Test
@@ -140,7 +154,9 @@ class TestScoreCalculator {
 		line = "-3 22 X  -2 34 34 9- 8- 7- 6-";
 		setUpHandlerAndCalculator();
 		expectedScore = 65;
+		specificFrameScore = 12;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(2).getScore());
 	}
 
 	@Test
@@ -148,7 +164,9 @@ class TestScoreCalculator {
 		line = "-3 22 X  -- 34 34 9- 8- 7- 6-";
 		setUpHandlerAndCalculator();
 		expectedScore = 61;
+		specificFrameScore = 10;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(2).getScore());
 	}
 
 	@Test
@@ -156,7 +174,9 @@ class TestScoreCalculator {
 		line = "23 12 1- 2- 3- 4- X  4/ 12 32";
 		setUpHandlerAndCalculator();
 		expectedScore = 57;
+		specificFrameScore = 20;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(6).getScore());
 	}
 
 	@Test
@@ -164,7 +184,9 @@ class TestScoreCalculator {
 		line = "31 23 31 35 X  X  23 21 33 53";
 		setUpHandlerAndCalculator();
 		expectedScore = 80;
+		specificFrameScore = 22;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(4).getScore());
 	}
 
 	@Test
@@ -172,7 +194,9 @@ class TestScoreCalculator {
 		line = "31 23 31 35 X  X  2/ 21 33 53";
 		setUpHandlerAndCalculator();
 		expectedScore = 92;
+		specificFrameScore = 22;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(4).getScore());
 	}
 
 	@Test
@@ -180,7 +204,9 @@ class TestScoreCalculator {
 		line = "31 23 31 35 X  X  X  21 33 53";
 		setUpHandlerAndCalculator();
 		expectedScore = 103;
+		specificFrameScore = 30;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(4).getScore());
 	}
 	
 	@Test
@@ -188,35 +214,45 @@ class TestScoreCalculator {
 		line = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/6";
 		setUpHandlerAndCalculator();
 		expectedScore = 151;
+		specificFrameScore = 16;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(9).getScore());
 	}
 	@Test
 	void testBonusFromSpareIntoStrike(){
 		line = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/X";
 		setUpHandlerAndCalculator();
 		expectedScore = 155;
+		specificFrameScore = 20;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(9).getScore());
 	}
 	@Test
 	void testBonusFromStrikeIntoCommon(){
 		line = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ X 6 3";
 		setUpHandlerAndCalculator();
 		expectedScore = 159;
+		specificFrameScore = 19;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(9).getScore());
 	}
 	@Test
 	void testBonusFromeStrikeIntoSpare(){
 		line = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ X 1 /";
 		setUpHandlerAndCalculator();
 		expectedScore = 160;
+		specificFrameScore = 20;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(9).getScore());
 	}
 	@Test
 	void testBonusFromStrikeIntoStrikeAndCommon(){
 		line = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ X X 4";
 		setUpHandlerAndCalculator();
 		expectedScore = 164 ;
+		specificFrameScore = 24;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(9).getScore());
 	}
 	
 	@Test
@@ -224,7 +260,9 @@ class TestScoreCalculator {
 		line = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ X X X";
 		setUpHandlerAndCalculator();
 		expectedScore = 170;
+		specificFrameScore = 30;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(specificFrameScore, frames.get(9).getScore());
 	}
 
 	@Test
@@ -233,6 +271,7 @@ class TestScoreCalculator {
 		setUpHandlerAndCalculator();
 		expectedScore = 300;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		
 	}
 	/**
 	 * 
