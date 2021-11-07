@@ -9,14 +9,18 @@ import java.util.ArrayList;
  *
  */
 public class BowlingInputHandler {
-	private String line;
-	private ArrayList<Frame> frames = new ArrayList<>();
+	public String line;
+	public ArrayList<Frame> frames = new ArrayList<>();
 
 	/**
 	 * 
 	 */
 	public BowlingInputHandler(String line) {
 		this.line = line;
+	}
+
+	public BowlingInputHandler() {
+		this.line = "";
 	}
 
 	/**
@@ -82,5 +86,6 @@ public class BowlingInputHandler {
 			CommonFrame commonFrame = new CommonFrame(Character.getNumericValue(frameAsString.charAt(0)), 0);
 			frames.add(commonFrame);
 		}
+		line = "";
 	}
 }

@@ -97,10 +97,7 @@ class TestScoreCalculator {
 	@Test
 	void testSpareIntoZeroFrame() {
 		line = "4/ -- 43 12 23 54 23 43 32 43";
-		BowlingInputHandler bowlingInputHandler = new BowlingInputHandler(line);
-		bowlingInputHandler.convertLineToFrames();
-		frames = bowlingInputHandler.getFrames();
-		scoreCalculator.setFramesToCalculate(frames);
+		setUpHandlerAndCalculator();
 		expectedScore = 58;
 		assertEquals(expectedScore, scoreCalculator.calculate());
 	}
@@ -119,6 +116,7 @@ class TestScoreCalculator {
 		setUpHandlerAndCalculator();
 		expectedScore = 64;
 		assertEquals(expectedScore, scoreCalculator.calculate());
+		assertEquals(15,frames.get(5).getScore());
 	}
 
 	@Test
@@ -240,7 +238,8 @@ class TestScoreCalculator {
 	 * 
 	 */
 	private void setUpHandlerAndCalculator() {
-		BowlingInputHandler bowlingInputHandler = new BowlingInputHandler(line);
+		BowlingInputHandler bowlingInputHandler = new BowlingInputHandler();
+		bowlingInputHandler.setLine(line);
 		bowlingInputHandler.convertLineToFrames();
 		frames = bowlingInputHandler.getFrames();
 		scoreCalculator.setFramesToCalculate(frames);

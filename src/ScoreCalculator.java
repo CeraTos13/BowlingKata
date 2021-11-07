@@ -58,6 +58,9 @@ public class ScoreCalculator {
 						currentFrame.setScore(10 + nextFrameForSpare.getFirstRoll());
 						break;
 					}
+
+				default:
+					currentFrame.setScore(currentFrame.getFirstRoll() + currentFrame.getSecondRoll());
 				}
 				score += currentFrame.getScore();
 			} else {
