@@ -25,6 +25,12 @@ public class ScoreCalculator {
 		this.framesToCalculate = framesToCalculate;
 	}
 
+	/**
+	 * Add Up all single scores from each frame and sets them aswell Point Range:
+	 * StrikeFrame [20,30] SpareFrame [10,20] CommonFrame [0,9]
+	 * 
+	 * @return score: total score of the line corresponding to the frames
+	 */
 	public int calculate() {
 		int score = 0;
 		for (int frameIndex = 0; frameIndex < framesToCalculate.size(); frameIndex++) {
@@ -70,6 +76,12 @@ public class ScoreCalculator {
 		return score;
 	}
 
+	/**
+	 * identifies what kind of frame frameToIdentify is
+	 * 
+	 * @param frameToIdentify: frame to identify the Class Name from
+	 * @return Class Name as String from the frame to identify
+	 */
 	public String identifyFrame(Frame frameToIdentify) {
 		String frameType = frameToIdentify.getClass().getName();
 		return frameType;

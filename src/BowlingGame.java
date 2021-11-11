@@ -21,20 +21,6 @@ public class BowlingGame {
 	private static String EXIT_TEXT = "Terminate Programm by entering one of these answers %s";
 
 	public static void main(String[] args) {
-
-//		Scanner scanner = new Scanner(System.in);
-//		String line = scanner.nextLine();
-//		scanner.close();
-//		BowlingInputHandler bowlingInputHandler = new BowlingInputHandler(line);
-//		System.out.println(String.format("Given input is: %s", bowlingInputHandler.getLine()));
-//		bowlingInputHandler.normalizeLine();
-//		System.out.println(String.format("Given input is: %s", bowlingInputHandler.getLine()));
-//		bowlingInputHandler.convertLineToFrames();
-//		ArrayList<Frame> frames = bowlingInputHandler.getFrames();
-//		System.out.println(frames);
-//		ScoreCalculator scoreCalculator = new ScoreCalculator();
-//		scoreCalculator.setFramesToCalculate(frames);
-//		System.out.println(scoreCalculator.calculate());
 		BowlingGame bowlingGame = new BowlingGame();
 		bowlingGame.run();
 
@@ -49,6 +35,10 @@ public class BowlingGame {
 
 	}
 
+	/**
+	 * Asks user to input a valid bowling line to calculate the score of it. After
+	 * the user entered a line he may confirm/change the line or exit the program.
+	 */
 	public static void askForLine() {
 		System.out.println("Please enter a valid Bowling line to calculate the corresponding score:");
 		try {
@@ -69,6 +59,9 @@ public class BowlingGame {
 		}
 	}
 
+	/**
+	 * sets up the possible answers of the Confirm, Change and Exit path.
+	 */
 	public static void setUpAnswers() {
 		final SortedSet<String> yesCommands = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 		yesCommands.addAll(Arrays.asList("y", "yes", "si", "sure"));
@@ -83,6 +76,13 @@ public class BowlingGame {
 		EXIT_ANSWERS = Collections.unmodifiableSortedSet(exitCommands);
 	}
 
+	/**
+	 * 
+	 * @param answer:  holds the reply of the user to the question 'Are you sure to
+	 *                 calcalute the score for this line?'
+	 * @param scanner: depending on the answer may be closed or needs to receive a
+	 *                 new input
+	 */
 	public static void handleAnswer(String answer, Scanner scanner) {
 		if (YES_ANSWERS.contains(answer)) {
 			bowlingInputHandler.setLine(line);
@@ -104,7 +104,12 @@ public class BowlingGame {
 			handleAnswer(newAnswer, scanner);
 		}
 	}
-	//struggles with lines that get early to 3-digit scores and more than 10 frames
+
+	/**
+	 * struggles with lines that get early to 3-digit scores and more than 10 frames
+	 * 
+	 * prints out result in a bowling game display manner
+	 */
 	public static void printResultString() {
 		String frameNumber = "1  2  3  4  5  6  7  8  9  10 total";
 		StringJoiner helper = new StringJoiner(" ");

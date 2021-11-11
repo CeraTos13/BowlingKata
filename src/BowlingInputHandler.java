@@ -50,11 +50,19 @@ public class BowlingInputHandler {
 	public void setFrames(ArrayList<Frame> frames) {
 		this.frames = frames;
 	}
-
+	/**
+	 * removes white spaces of the line
+	 */
 	public void normalizeLine() {
 		this.line = line.replaceAll("\\s", "");
 	}
-
+	
+	/**
+	 * sets up frames according to the given line
+	 * X -> StrikeFrame
+	 * f/ | f in {-, 1, 2, 3, 4, 5, 7, 8, 9} -> SpareFrame
+	 * fs | f,s in {-, 1, 2, 3, 4, 5, 7, 8, 9} -> CommonFrame
+	 */
 	public void convertLineToFrames() {
 		normalizeLine();
 		String frameAsString = "";
@@ -86,6 +94,5 @@ public class BowlingInputHandler {
 			CommonFrame commonFrame = new CommonFrame(Character.getNumericValue(frameAsString.charAt(0)), 0);
 			frames.add(commonFrame);
 		}
-		line = "";
 	}
 }
